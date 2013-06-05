@@ -35,7 +35,7 @@ describe("How many numbers less than or equal to ROUND can divide NUMBER, is thi
 		assert.is_false(shouldOpenInRound(3,3))
 	end)
 	
-	it("1,2 can divide 4", function()
+	it("1,2 can divide 4 and <= 2", function()
 		assert.is_false(shouldOpenInRound(4,2))
 	end)
 	
