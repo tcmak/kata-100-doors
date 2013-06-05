@@ -18,7 +18,7 @@ local function doors(numDoors, round)
 	return doors
 end
 
-describe("How many numbers less than ROUND can divide NUMBER, is this an odd number?", function()
+describe("How many numbers less than or equal to ROUND can divide NUMBER, is this an odd number?", function()
 	it("0 is a special case where it should be false", function()
 		assert.is_false(shouldOpenInRound(1,0))
 	end)
@@ -47,6 +47,7 @@ end)
 describe("100 doors kata", function()
 	it("All doors closed at the beginning", function()
 		local doors = doors(100,0)
+		
 		for i,door in ipairs(doors) do
 			assert.is_false(door)
 		end
@@ -54,6 +55,7 @@ describe("100 doors kata", function()
 
 	it("All doors open after the first round", function()
 		local doors = doors(100,1)
+		
 		for i,door in ipairs(doors) do
 			assert.is_true(door)
 		end
@@ -61,6 +63,7 @@ describe("100 doors kata", function()
 
 	it("Second round, alternative doors are open", function()
 		local doors = doors(100,2)
+		
 		for i= 1,100, 2 do assert.is_true(doors[i]) end
 		for i= 2,100, 2 do assert.is_false(doors[i]) end
 	end)
@@ -78,6 +81,7 @@ describe("100 doors kata", function()
 	
 	it("100th round, 1,4,9,16...100", function()
 		local doors = doors(100,100)
+		
 		for i=1,100 do
 			if math.sqrt(i) == math.ceil(math.sqrt(i)) then 
 				assert.is_true(doors[i]) 
